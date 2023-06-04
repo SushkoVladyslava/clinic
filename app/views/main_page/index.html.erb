@@ -1,0 +1,23 @@
+<div>
+  <img src="https://cdn.systematic.com/media/g0sj1tbg/hospital-building-001-global.jpg?cropAlias=hero_large&width=992&height=483&quality=80&rmode=crop&format=webp&null"
+       alt="Welcome image" style="margin-left: auto; margin-right: auto; display: block;">
+</div>
+<div class='main-page'>
+  <div class="section-tittle">
+    <h3>ABOUT OUR COMPANY</h3>
+    <p> The Central City Clinical Hospital is a modern multidisciplinary institution that provides specialized, highly specialized inpatient and consultative medical care in 30 specialties.</p>
+  </div>
+  <div class="section-tittle">
+    <h3> Our doctors </h3>
+      <% User.doctor.each do |doctor| %>
+      <ul>
+        <%= link_to (doctor.first_name + ' ' + doctor.last_name), doctor_path(doctor) %>
+      </ul>
+      <% end %>
+  </div>
+  <div class="section-tittle">
+    <h3> Important contacts </h3>
+    <p> Phone: +324095432819</p>
+    <p> Email: clinic@gmail.com</p>
+  </div>
+</div>

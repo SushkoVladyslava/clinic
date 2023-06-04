@@ -1,0 +1,32 @@
+  <x></x><% if user_signed_in? && current_user.role == 'patient'%>
+  <h1>My appointments </h1>
+  <section >
+    <table id="tables" >
+      <tr>
+        <th> Patient's information</th>
+        <th> Message </th>
+        <th> Doctor's information</th>
+        <th> Status</th>
+        <th> Schedule time</th>
+        <th> Doctor's recommendation </th>
+      </tr>
+        <% @user_appointments.each do |appointment| %>
+           <tr>
+             <td> <%= appointment.first_name %>, <%= appointment.last_name %> <%= appointment.phone %> </td>
+            <td> <%= appointment.message%></td>
+            <td> <%= appointment.doctor_user.first_name %> <%= appointment.doctor_user.last_name %>, <%= DoctorsCategory.find(appointment.doctor_user.doctors_category_id).name %></td>
+            <td> <%= appointment.status %></td>
+            <td> <%= appointment.schedule_time %></td>
+            <td>
+              <% if appointment.doctors_recommendation.present? %>
+              <%= appointment.doctors_recommendation.name %>
+              <%= appointment.doctors_recommendation.description %>
+            <% else %>
+              <p> The doctor has not yet prescribed a recommendation </p>
+            <% end %>
+            </td>
+           </tr>
+      <% end %>
+    </table>
+  </section>
+<% end %>

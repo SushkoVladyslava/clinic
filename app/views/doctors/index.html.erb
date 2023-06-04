@@ -1,0 +1,28 @@
+<% if user_signed_in? && current_user.role == 'patient'%>
+  <%= form_tag(doctors_path, method: :get) do %>
+    <%= collection_select :doctors_category, :id, DoctorsCategory.all.order('name ASC'), :id, :name, {include_blank: 'Select Category'} %>
+    <%= submit_tag 'Filter by category', name: nil %>
+  <% end %>
+  <br>
+  <h3>List of doctors</h3>
+  <table id="tables" >
+    <tr>
+      <th> Base Information</th>
+      <th> Category </th>
+      <th> Years of work</th>
+      <th> Price </th>
+      <th> Description: </th>
+      <th> </th>
+    </tr>
+      <% @doctors.each do |doctor| %>
+        <tr>
+          <td> <%= doctor.first_name %>, <%= doctor.last_name %> <%= doctor.city %> ,<%= doctor.sex %></td>
+          <td> <%= DoctorsCategory.find(doctor.doctors_category_id).name %></td>
+          <td> <%= doctor.years_of_work %></td>
+          <td> <%= doctor.price %></td>
+          <td> <%= doctor.description %></td>
+          <td> <%= link_to "Make an appointment", new_doctor_appointment_path(doctor) %> </td>
+        </tr>
+      <% end %>
+  </table>
+<% end %>
