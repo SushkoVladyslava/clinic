@@ -6,14 +6,18 @@
 4. run `rails db:seed`
 
 Admin user's credential: 
-    email: 'admin@example.com'
-    password: 'password'
-
+    `email: 'admin@example.com'
+    password: 'password'`
+    
+    
 Doctor's credential:
-    phone: '23456789011', password: '123456'
-    phone: '23456789012', password: '123456'
-    phone: '23456789013', password: '123456'
+    `phone: '23456789011', password: '123456'`
+    OR
+    `phone: '23456789012', password: '123456'`
+    OR
+    `phone: '23456789013', password: '123456'`
 
 Patient's credential:
-    phone: '11234567890', password: '123456'
-    phone: '21234567890', password: '123456'
+    `phone: '11234567890', password: '123456'`
+    OR
+    `phone: '21234567890', password: '123456'`
