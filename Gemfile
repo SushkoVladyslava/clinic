@@ -67,3 +67,5 @@ gem "cancan"
 gem 'activeadmin'
 gem 'aws-sdk-s3'
 gem 'image_processing', '~> 1.2'
+gem 'mini_portile2', '~> 2.8.2'
+gem 'pg', '~> 1.5', '>= 1.5.3'

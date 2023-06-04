@@ -16,7 +16,7 @@ class AppointmentsController  < ApplicationController
   def create
     @appointment = current_user.patient_user_appointments.build(appointment_params)
     if @appointment.save
-      redirect_to my_appointment_path, success: 'Appointments successfully added'
+      redirect_to appointments_path, success: 'Appointments successfully added'
     else
       render :new, danger: 'Appointments didnt create'
     end

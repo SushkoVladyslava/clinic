@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:phone]
 
-  ROLES = %w[admin patient doctor].freeze
+  ROLES = %w[patient doctor].freeze
 
   has_one_attached :avatar
   has_many :doctor_user_appointments, class_name: 'Appointment', foreign_key: 'doctor_user_id', dependent: :destroy
@@ -20,7 +20,6 @@ class User < ApplicationRecord
 
   scope :doctor,  -> { where(role: 'doctor') }
   scope :patient, -> { where(role: 'patient') }
-  scope :admin,   -> { where(role: 'admin') }
 
   def email_required?
     false

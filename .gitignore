@@ -45,6 +45,7 @@ yarn-debug.log*
 .gitattributes
 yarn.lock
 vendor/.keep
+.env
 
 # IDE
 .project

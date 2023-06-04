@@ -23,7 +23,4 @@ Rails.application.routes.draw do
   resources :doctors_categories, only: nil do
     resources :doctors, only: :index
   end
-
-  # get 'my_appointment', to: 'users#show'
-  #get "/patients/:id/edit", to: "patients#edit"
 end

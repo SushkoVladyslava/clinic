@@ -1,3 +1,3 @@
 class DoctorsRecommendation < ApplicationRecord
-  belongs_to :appointment, :dependent => :destroy
+  belongs_to :appointment
 end
